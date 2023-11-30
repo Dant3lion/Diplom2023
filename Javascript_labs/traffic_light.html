@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Traffic Light task</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="js_styles/traffic_style.css" rel="stylesheet" type="text/css">
+    </head>
+<body>
+<button class="glow-on-hover" onclick="document.location='../projects.html'" type="button">Return to projects</button>
+<h2>Traffic Light</h2>
+
+<p>Traffic Light on and off: JavaScript</p>
+
+
+
+<!--<img id="myImage" src="JS_images/traffic_light.PNG" style="width:100px">-->
+<div class="svetofor">
+  <div id="stop" class="black"></div>
+  <div id="wait" class="black"></div>
+  <div id="move" class="black"></div>
+</div>
+<script>
+  let div_stop = document.getElementById("stop");
+  let div_wait = document.getElementById("wait");
+  let div_move = document.getElementById("move");
+
+  function changeColorStop() {
+      div_stop.className = "red";
+      div_wait.className = "black";
+      div_move.className = "black";
+  }
+  function changeColorWait() {
+      div_wait.className = "yellow";
+      div_stop.className = "black";
+      div_move.className = "black";
+  }
+  function changeColorMove() {
+      div_move.className = "green";
+      div_wait.className = "black";
+      div_stop.className = "black";
+  }
+
+  </script>
+<button class="glow-on-hover" type="button" onclick="changeColorStop()" id="stop_btn">Stop</button>
+<button class="glow-on-hover" type="button" onclick="changeColorWait()" id="wait_btn">Wait</button>
+<button class="glow-on-hover" type="button" onclick="changeColorMove()" id="move_btn">Move</button>
+</body>
+</html>

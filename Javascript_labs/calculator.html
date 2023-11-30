@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Калькулятор</title>
+    <meta charset="UTF-8">
+    <title>Traffic Light task</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="js_styles/calc_style.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+
+    <h2>JavaScript калькулятор</h2>
+	<div id="calc_body">
+		<div id="window_calc">0</div>
+		<div onClick="semn('%')" class="buttons_calc">% </div>
+		<div onClick="semn('^2')" class="buttons_calc">^2 </div>
+		<div onClick="semn('√')" class="buttons_calc">√ </div>
+		<div onClick="del()" class="buttons_calc">Del </div>
+		<div onClick="clickBt(7)" class="buttons_calc">7 </div>
+		<div onClick="clickBt(8)" class="buttons_calc">8 </div>
+		<div onClick="clickBt(9)" class="buttons_calc">9 </div>
+		<div onClick="semn('/')" class="buttons_calc">/ </div>
+		<div onClick="clickBt(4)" class="buttons_calc">4 </div>
+		<div onClick="clickBt(5)" class="buttons_calc">5 </div>
+		<div onClick="clickBt(6)" class="buttons_calc">6 </div>
+		<div onClick="semn('*')" class="buttons_calc">* </div>
+		<div onClick="clickBt(1)" class="buttons_calc">1 </div>
+		<div onClick="clickBt(2)" class="buttons_calc">2 </div>
+		<div onClick="clickBt(3)" class="buttons_calc">3 </div>
+		<div onClick="semn('-')" class="buttons_calc">- </div>
+		<div onClick="clickBt(0)" class="buttons_calc">0 </div>
+		<div onClick="semn('+')" class="buttons_calc">+ </div>
+		<div onClick="ravno()" class="buttons_calc">= </div>
+		<div onClick="clear1()" class="buttons_calc">C </div>
+        <div onClick="toBinary()" class="buttons_calc">Bin </div>
+        <div onClick="toDecimal()" class="buttons_calc">Dec </div>
+
+
+		
+	</div>
+	
+<script>
+	let b = 0;                                                           //объявление изначальной переменной
+	let k = " ";                                                          //оператор операции
+	let znak = false;                                                  //объявление логической переменной
+	function clear1() {                                                //функция очищения поля решения
+		document.getElementById("window_calc").innerHTML = 0;          //поле решений обнуляется
+		b = 0;                                                           //обнуление значения
+		k = " ";                   //обнудение строки
+		znak = false;
+	}
+	function semn(semn) {  //функция обработки операции
+		k = semn;
+		znak = false;
+		b = parseInt(window_calc.innerHTML);
+	}
+	function ravno() {  //функция вывода результата
+		if (k != " ") {	//проверка строки поля решений
+			switch(k) {
+				case '/':b = b / parseInt(window_calc.innerHTML); break;   //деление
+				case '*':b = b * parseInt(window_calc.innerHTML); break;   //умножение
+				case '-':b = b - parseInt(window_calc.innerHTML); break;   //вычитание
+				case '+':b = b + parseInt(window_calc.innerHTML); break;   //сложение
+				case '%':b = b / (100 / parseInt(window_calc.innerHTML)); break;
+				case '^2':b = Math.pow(parseInt(window_calc.innerHTML),2); break;
+				case '√':b = Math.sqrt(parseInt(window_calc.innerHTML)); break;
+			}
+		}
+		window_calc.innerHTML = b;
+		k = " ";
+	}
+    function toBinary() {
+        window_calc.innerHTML = parseInt(window.innerHTML).toString(2);
+    }
+
+    function toDecimal() {
+        let binary = window_calc.innerHTML;
+        let digit = parseInt(binary, 2);
+        window_calc.innerHTML = digit;
+    }
+
+
+	function del() {
+			window_calc.innerHTML = window_calc.innerHTML.substring(0,window_calc.innerHTML.length-1);
+			}
+	
+	function clickBt(number) {  //функция запоминания введёных значений
+		let window_calc = document.getElementById("window_calc");
+		if (window_calc.innerHTML.length <22) {
+			if (window_calc.innerHTML != 0 && znak == true)
+				window_calc.innerHTML += number;
+			else
+				window_calc.innerHTML = number;
+		znak = true;
+		} 
+	}
+</script>
+</body>
+</html>
