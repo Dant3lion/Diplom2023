@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Traffic Light task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="js_styles/oper_styles.css" rel="stylesheet" type="text/css">
+        
+    </head>
+<body>
+
+<h2>JavaScript выражения</h2>
+
+<p>Код на JavaScript пишется в блоках между { и }</p>
+<p>Можно использовать множество выражений на одной строке.</p>
+
+<p id="demo1"></p>
+<button type="button" onclick="TextView()">Click Me!</button>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+let a, b, c;
+a = 231; b = 327; c = a + b;
+document.getElementById("demo1").innerHTML = c;
+
+function TextView() {
+  if(document.getElementById("demo2").innerHTML == "")
+  {document.getElementById("demo2").innerHTML = "Привет. Меня зовут Горюнов Сергей. Сейчас я обучаюсь в Московском Политехе на ФИТ";
+  document.getElementById("demo3").innerHTML = "Сейчас я изучаю просто массу всего: веб-программирование, C++, графические процессоры и многое остальное.";}
+  else if (document.getElementById("demo2").innerHTML == "Привет. Меня зовут Горюнов Сергей. Сейчас я обучаюсь в Московском Политехе на ФИТ")
+  {document.getElementById("demo2").innerHTML = "";
+  document.getElementById("demo3").innerHTML = "";
+  }
+
+}
+
+
+</script>
+
+</body>
+</html>
